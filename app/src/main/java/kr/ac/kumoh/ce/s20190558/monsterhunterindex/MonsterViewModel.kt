@@ -9,8 +9,8 @@ import kotlinx.coroutines.launch
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class MonsterViewModel() : ViewModel() {
-    private val SERVER_URL = "https://port-0-s23-monsterhunterbe-5yc2g32mlomgpvzu.sel5.cloudtype.app/"
+class MonsterViewModel : ViewModel() {
+    private val serverUrl = "https://port-0-s23-monsterhunterbe-5yc2g32mlomgpvzu.sel5.cloudtype.app/"
     private val monsterApi: MonsterApi
     private val _monsterList = MutableLiveData<List<Monster>>()
     val monsterList: LiveData<List<Monster>>
@@ -18,7 +18,7 @@ class MonsterViewModel() : ViewModel() {
 
     init {
         val retrofit = Retrofit.Builder()
-            .baseUrl(SERVER_URL)
+            .baseUrl(serverUrl)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 
